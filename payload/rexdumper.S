@@ -1,6 +1,8 @@
 _start:
 .globl _start
 
+mflr	%r12
+
 li		%r3, 0xFF
 bl 		post_out
 bl 		delay_9600
@@ -9,295 +11,301 @@ bl 		delay_9600
 bl 		delay_9600
 bl 		delay_9600
 
-/* Taken from xenonsprs.h */
-/* msr */
+// Taken from xenonsprs.h
+
+// msr
 mfmsr	%r3
 li		%r4, 64
 bl		print_reg
 
-/* esr */
+// esr
 mfspr	%r3, 62
 li		%r4, 64
 bl		print_reg
 
-/* ivpr */
+// ivpr
 mfspr	%r3, 63
 li		%r4, 64
 bl		print_reg
 
-/* pid */
+// pid
 mfspr	%r3, 48
 li		%r4, 64
 bl		print_reg
 
-/* ctrlrd */
+// ctrlrd
 mfspr	%r3, 136
 li		%r4, 64
 bl		print_reg
 
-/* ctrlwr */
+// ctrlwr
 mfspr	%r3, 152
 li		%r4, 64
 bl		print_reg
 
-/* pvr */
+// pvr
 mfspr	%r3, 287
 li		%r4, 64
 bl		print_reg
 
-/* hsprg0 */
+// hsprg0
 mfspr	%r3, 304
 li		%r4, 64
 bl		print_reg
 
-/* hsprg1 */
+// hsprg1
 mfspr	%r3, 305
 li		%r4, 64
 bl		print_reg
 
-/* hdsisr */
+// hdsisr
 mfspr	%r3, 306
 li		%r4, 64
 bl		print_reg
 
-/* hdar */
+// hdar
 mfspr	%r3, 307
 li		%r4, 64
 bl		print_reg
 
-/* dbcr0 */
+// dbcr0
 mfspr	%r3, 308
 li		%r4, 64
 bl		print_reg
 
-/* dbcr1 */
+// dbcr1
 mfspr	%r3, 309
 li		%r4, 64
 bl		print_reg
 
-/* hdec */
+// hdec
 mfspr	%r3, 310
 li		%r4, 64
 bl		print_reg
 
-/* hior */
+// hior
 mfspr	%r3, 311
 li		%r4, 64
 bl		print_reg
 
-/* rmor */
+// rmor
 mfspr	%r3, 312
 li		%r4, 64
 bl		print_reg
 
-/* hrmor */
+// hrmor
 mfspr	%r3, 313
 li		%r4, 64
 bl		print_reg
 
-/* hsrr0 */
+// hsrr0
 mfspr	%r3, 314
 li		%r4, 64
 bl		print_reg
 
-/* hsrr1 */
+// hsrr1
 mfspr	%r3, 315
 li		%r4, 64
 bl		print_reg
 
-/* dac1 */
+// dac1
 mfspr	%r3, 316
 li		%r4, 64
 bl		print_reg
 
-/* dac2 */
+// dac2
 mfspr	%r3, 317
 li		%r4, 64
 bl		print_reg
 
-/* lpcr */
+// lpcr
 mfspr	%r3, 318
 li		%r4, 64
 bl		print_reg
 
-/* lpidr */
+// lpidr
 mfspr	%r3, 319
 li		%r4, 64
 bl		print_reg
 
-/* tsr */
+// tsr
 mfspr	%r3, 336
 li		%r4, 64
 bl		print_reg
 
-/* tcr */
+// tcr
 mfspr	%r3, 340
 li		%r4, 64
 bl		print_reg
 
-/* tsrl */
+// tsrl
 mfspr	%r3, 896
 li		%r4, 64
 bl		print_reg
 
-/* tsrr */
+// tsrr
 mfspr	%r3, 897
 li		%r4, 64
 bl		print_reg
 
-/* tscr */
+// tscr
 mfspr	%r3, 921
 li		%r4, 64
 bl		print_reg
 
-/* ttr */
+// ttr
 mfspr	%r3, 922
 li		%r4, 64
 bl		print_reg
 
-/* PpeTlbIndexHint	*/
+// PpeTlbIndexHint
 mfspr	%r3, 946
 li		%r4, 64
 bl		print_reg
 
-/* PpeTlbIndex */
+// PpeTlbIndex
 mfspr	%r3, 947
 li		%r4, 64
 bl		print_reg
 
-/* PpeTlbVpn */
+// PpeTlbVpn
 mfspr	%r3, 948
 li		%r4, 64
 bl		print_reg
 
-/* PpeTlbRpn */
+// PpeTlbRpn
 mfspr	%r3, 949
 li		%r4, 64
 bl		print_reg
 
-/* PpeTlbRmt */
+// PpeTlbRmt
 mfspr	%r3, 951
 li		%r4, 64
 bl		print_reg
 
-/* dsr0 */
+// dsr0
 mfspr	%r3, 952
 li		%r4, 64
 bl		print_reg
 
-/* drmr0 */
+// drmr0
 mfspr	%r3, 953
 li		%r4, 64
 bl		print_reg
 
-/* dcidr0 */ 
+// dcidr0 
 mfspr	%r3, 954
 li		%r4, 64
 bl		print_reg
 
-/* drsr1 */
+// drsr1
 mfspr	%r3, 955
 li		%r4, 64
 bl		print_reg
 
-/* drmr1 */
+// drmr1
 mfspr	%r3, 956
 li		%r4, 64
 bl		print_reg
 
-/* dcidr1 */
+// dcidr1
 mfspr	%r3, 957
 li		%r4, 64
 bl		print_reg
 
-/* issr0 */
+// issr0
 mfspr	%r3, 976
 li		%r4, 64
 bl		print_reg
 
-/* irmr0 */
+// irmr0
 mfspr	%r3, 977
 li		%r4, 64
 bl		print_reg
 
-/* icidr0 */
+// icidr0
 mfspr	%r3, 978
 li		%r4, 64
 bl		print_reg
 
-/* irsr1 */
+// irsr1
 mfspr	%r3, 979
 li		%r4, 64
 bl		print_reg
 
-/* irmr1 */
+// irmr1
 mfspr	%r3, 980
 li		%r4, 64
 bl		print_reg
 
-/* icidr1 */
+// icidr1
 mfspr	%r3, 981
 li		%r4, 64
 bl		print_reg
 
-/* hid0 */
+// hid0
 mfspr	%r3, 1008
 li		%r4, 64
 bl		print_reg
 
-/* hid1 */
+// hid1
 mfspr	%r3, 1009
 li		%r4, 64
 bl		print_reg
 
-/* hid4 */
+// hid4
 mfspr	%r3, 1012
 li		%r4, 64
 bl		print_reg
 
-/* iabr */
+// iabr
 mfspr	%r3, 1010
 li		%r4, 64
 bl		print_reg
 
-/* dabr */
+// dabr
 mfspr	%r3, 1013
 li		%r4, 64
 bl		print_reg
 
-/* dabrx */
+// dabrx
 mfspr	%r3, 1015
 li		%r4, 64
 bl		print_reg
 
-/* buscsr */
+// buscsr
 mfspr	%r3, 1016
 li		%r4, 64
 bl		print_reg
 
-/* hid6 */
+// hid6
 mfspr	%r3, 1017
 li		%r4, 64
 bl		print_reg
 
-/* l2sr */
+// l2sr
 mfspr	%r3, 1018
 li		%r4, 64
 bl		print_reg
 
-/* BpVr */
+// BpVr
 mfspr	%r3, 1022
 li		%r4, 64
 bl		print_reg
 
-/* pir */
+// pir
 mfspr	%r3, 1023
 li		%r4, 64
 bl		print_reg
 
-end:
+mtlr	%r12
+li      %r1, 0x200
+blr
+
+
+/*end:
 	nop
-	b   end
+	b   end*/
 	
 post_out:
 	mfmsr	%r7
@@ -316,7 +324,7 @@ post_write:
 	std		%r3, 0(%r7)
 	blr
 
-delay_9600:
+/*delay_9600:
 	li		%r3, 0x00
 	ori		%r3, %r3, 0x1458
 tdelay:
@@ -327,7 +335,18 @@ tdelay_loop:
 	mftb	%r8
 	cmpw	%r8, %r3
 	ble 	tdelay_loop
-	blr
+	blr*/
+
+delay_9600:
+	li		%r3, 0x00
+	li 		%r8, 0x50
+	nop
+tdelay_loop:
+	addi	%r3, %r3, 1
+	or		%r31, %r31, %r31
+	cmpw	%r3, %r8
+	ble 	tdelay_loop
+	blr	
 
 send_start:
 	mflr	%r1
